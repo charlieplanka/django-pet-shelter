@@ -3,25 +3,25 @@ from django.db import models
 
 class Pet(models.Model):
     SPECIES_CHOICES = [
-        ("Dog", "Dog"),
-        ("Cat", "Cat"),
-        ("Rabbit", "Rabbit")
+        ("Собаки", "Собаки"),
+        ("Коты и кошки", "Коты и кошки"),
+        ("Кролики", "Кролики")
     ]
 
     GENDER_CHOICES = [
-        ("F", "Female"),
-        ("M", "Male"),
-        ("Unknown", "Unknown")
+        ("Ж", "Ж"),
+        ("М", "М"),
+        ("Неизвестно", "Неизвестно")
     ]
 
     species = models.CharField(max_length=100, choices=SPECIES_CHOICES, blank=True)
     name = models.CharField(max_length=100)
     age = models.IntegerField()
-    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="Unknown")
+    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="Неизвестно")
     description = models.TextField(blank=True)
     arrival_date = models.DateField(auto_now_add=True)
     breed = models.CharField(max_length=200, blank=True)
-    # add photo field
+    photo = models.ImageField(upload_to='pet_photos', blank=True)
 
     def __str__(self):
-        return f"{self.species} {self.name}"
+        return f"{self.species}: {self.name}"

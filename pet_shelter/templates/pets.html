@@ -1,24 +1,28 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/pets.css' %}">
+{% endblock %}
 
 {% block content %}
-
 <h2 class="text-center">Добро пожаловать в приют!</h2>
-
-<div class="container mx-5 mt-3">
-    <div class="row">
+<div class="d-flex justify-content-around flex-wrap mx-5 mt-3">
     {% for pet in pets %}
-        <div class="col-md mx-3">
-            {% if pet.photo %}
-                <div class="row">
-                    <img src="/media/{{ pet.photo }}" height="200">
-                </div>
-            {% endif %}
-            <div class="row">{{ pet.name }}, {{ pet.age }}</div>
-            <div class="row">{{ pet.description }}</div>
+        <div class="pet mx-3">
+            <a href="{% url 'shelter:pets' %}">
+                {% if pet.photo %}
+                    <div class="mb-3">
+                        <img src="/media/{{ pet.photo }}" height="200" width="300">
+                    </div>
+                {% endif %}
+                <div class="my-2"><strong>{{ pet.name }}, {{ pet.age }}</strong></div>
+                {% if pet.breed %}
+                    <div>Порода: {{ pet.breed }}</div>
+                {% endif %}
+                <div class="my-2">{{ pet.description }}</div>
+            </a>
         </div>
     {% endfor %}
-    </div>
 </div>
-
-
 {% endblock %}

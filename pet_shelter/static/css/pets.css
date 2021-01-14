@@ -1,0 +1,20 @@
+h2 {
+    margin-bottom: 50px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: black;
+}
+
+a img {
+    object-fit: cover;
+    box-shadow: 0 0 30px 0 rgb(124, 124, 124)
+}
+
+.pet {
+    max-width: 350px;
+}

@@ -1,20 +1,21 @@
 from django.db import models
 
 
-class Pet(models.Model):
-    SPECIES_CHOICES = [
-        ("Собаки", "Собаки"),
-        ("Коты и кошки", "Коты и кошки"),
-        ("Кролики", "Кролики")
-    ]
+class Specie(models.Model):
+    title = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.title
+
+
+class Pet(models.Model):
     GENDER_CHOICES = [
         ("Ж", "Ж"),
         ("М", "М"),
         ("Неизвестно", "Неизвестно")
     ]
 
-    species = models.CharField(max_length=100, choices=SPECIES_CHOICES, blank=True)
+    specie = models.ForeignKey('Specie', blank=True, null=True, on_delete=models.SET_NULL, related_name='pets')
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     gender = models.CharField(max_length=50, choices=GENDER_CHOICES, default="Неизвестно")
@@ -24,4 +25,4 @@ class Pet(models.Model):
     photo = models.ImageField(upload_to='pet_photos', blank=True)
 
     def __str__(self):
-        return f"{self.species}: {self.name}"
+        return f"{self.specie}: {self.name}"

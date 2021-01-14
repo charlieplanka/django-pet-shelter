@@ -16,10 +16,13 @@
                         <img src="/media/{{ pet.photo }}" height="200" width="300">
                     </div>
                 {% endif %}
+
                 <div class="my-2"><strong>{{ pet.name }}, {{ pet.age }}</strong></div>
+
                 {% if pet.breed %}
                     <div>Порода: {{ pet.breed }}</div>
                 {% endif %}
+                
                 <div class="my-2">{{ pet.description }}</div>
             </a>
         </div>

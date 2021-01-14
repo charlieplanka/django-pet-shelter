@@ -10,8 +10,14 @@ a:active {
     color: black;
 }
 
+.pet-list {
+    margin-left: 150px;
+}
+
+
 a img {
     object-fit: cover;
+    object-position: 50% 10%;
     box-shadow: 0 0 30px 0 rgb(124, 124, 124)
 }
 

@@ -2,4 +2,5 @@
     max-width: 500px;
     max-height: 600px;
     object-fit: cover;
+    border: solid 1px black;
 }

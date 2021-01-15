@@ -10,19 +10,14 @@
 <div class="d-flex justify-content-start flex-wrap mt-3 pet-list">
     {% for pet in pets %}
         <div class="pet mx-3 my-3">
-            <a href="{% url 'shelter:pets' %}">
+            <a href="pets/{{ pet.pk }}">
                 {% if pet.photo %}
                     <div class="mb-3">
-                        <img src="/media/{{ pet.photo }}" height="200" width="300">
+                        <img src="{{ pet.photo.url }}" height="200" width="300">
                     </div>
                 {% endif %}
 
-                <div class="my-2"><strong>{{ pet.name }}, {{ pet.age }}</strong></div>
-
-                {% if pet.breed %}
-                    <div>Порода: {{ pet.breed }}</div>
-                {% endif %}
-                
+                <div class="my-2"><strong>{{ pet.name }}</strong></div>     
                 <div class="my-2">{{ pet.description }}</div>
             </a>
         </div>

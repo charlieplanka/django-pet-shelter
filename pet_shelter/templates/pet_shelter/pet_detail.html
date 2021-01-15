@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/pet_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex pet">
+        <img src="{{ object.photo.url }}">
+        <ul class="list-group-flush">
+            <li class="list-group-item">Имя: {{ object.name }}</li>
+            <li class="list-group-item">Возраст: {{ object.age }}</li>
+            {% if object.breed %}
+                <li class="list-group-item">Порода: {{ object.breed }}</li>
+            {% endif %}
+            <li class="list-group-item">Особенности: {{ object.description }}</li>
+            <li class="list-group-item"><a href="" class="btn btn-success">Хочу приютить!</a></li>
+        </ul>
+    </div>
+    <a href="{% url 'shelter:pets' %}" class="btn btn-outline-dark mt-3">Назад к питомцам</a>
+{% endblock %}

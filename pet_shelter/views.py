@@ -1,6 +1,12 @@
 from pet_shelter.models import Pet
 from django.template import loader
 from django.http import HttpResponse
+from django.views.generic import DetailView
+
+
+class PetDetailView(DetailView):
+
+    model = Pet
 
 
 def pets(request):

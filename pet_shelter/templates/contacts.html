@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Контакты{% endblock %}
+
+{% block nav %}
+    {% block nav-pets %}<a class="nav-item nav-link" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
+    {% block nav-contacts %}<a class="nav-item nav-link active" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
+{% endblock %}
+
+{% block content %}
+<h3>Как с нами связаться?</h3>
+<div class="mt-3" style="max-width: 700px">
+<p>Если вам понравился сайт или приглянулся питомец, вы можете отправить письмо на адрес <a
+        href="mailto:charlieplanka@gmail.com">charlieplanka@gmail.com</a> с выражением симпатии, предложением дружбы или
+    сотрудничества. </p>
+<p>Разработчицу сайта можно найти на <a href="https://github.com/charlieplanka">GitHub</a> и <a
+        href="https://www.linkedin.com/in/anaumenko/">LinkedIn</a>.</p>
+<p>&#128021;</p>
+</div>
+
+{% endblock %}
+
+

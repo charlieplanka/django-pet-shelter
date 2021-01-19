@@ -11,11 +11,13 @@
         <ul class="list-group-flush">
             <li class="list-group-item">Имя: {{ object.name }}</li>
             <li class="list-group-item">Возраст: {{ object.age }}</li>
+            <li class="list-group-item">Вид: {{ object.specie }}</li>
+            <li class="list-group-item">Пол: {{ object.gender }}</li>
             {% if object.breed %}
                 <li class="list-group-item">Порода: {{ object.breed }}</li>
             {% endif %}
             <li class="list-group-item">Особенности: {{ object.description }}</li>
-            <li class="list-group-item"><a href="" class="btn btn-success">Хочу приютить!</a></li>
+            <li class="list-group-item"><a href="{% url 'shelter:contacts' %}" class="btn btn-success">Хочу приютить!</a></li>
         </ul>
     </div>
     <a href="{% url 'shelter:pets' %}" class="btn btn-outline-dark mt-3">Назад к питомцам</a>

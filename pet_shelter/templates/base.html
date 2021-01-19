@@ -7,20 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Приют для животных</title>
+    <title>
+        {% block head_title %}Приют для животных{% endblock %}
+    </title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block extra_head %}
     {% endblock %}
 </head>
 <body>
     <header>
-        {% block nav %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 justify-content-center">
-            <div class="navbar-nav">
-                {% block nav-pets %}<a class="nav-item nav-link" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <span class="navbar-brand" style="margin-left: 170px">&#128036; &#128007; &#128024; Приют для животных</span>
+            <div class="navbar-nav mx-5">
+                {% block nav %}
+                    {% block nav-pets %}<a class="nav-item nav-link active" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
+                    {% block nav-contacts %}<a class="nav-item nav-link" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
+                {% endblock %}
             </div>
         </nav>
-        {% endblock %}
+        
     </header>
     <main>
     {% block content %}

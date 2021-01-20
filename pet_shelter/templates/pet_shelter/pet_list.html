@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="d-flex justify-content-start flex-wrap mt-3 pet-list">
-    {% for pet in pets %}
+    {% for pet in object_list %}
         <div class="pet mx-3 my-3">
             <a href="pets/{{ pet.pk }}">
                 {% if pet.photo %}

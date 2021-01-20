@@ -2,10 +2,7 @@
 
 {% block head_title %}Контакты{% endblock %}
 
-{% block nav %}
-    {% block nav-pets %}<a class="nav-item nav-link" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
-    {% block nav-contacts %}<a class="nav-item nav-link active" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
-{% endblock %}
+{% block nav-contacts %}<a class="nav-item nav-link active" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
 
 {% block content %}
 <h3>Как с нами связаться?</h3>

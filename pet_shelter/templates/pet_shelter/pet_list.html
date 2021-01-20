@@ -3,9 +3,34 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/pets.css' %}">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 {% endblock %}
 
+{% block nav-pets %}<a class="nav-item nav-link active" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
+
 {% block content %}
+
+<div class="dropdown ml-3">
+    <button class="btn btn-warning dropdown-toggle mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Вид питомца
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'shelter:pets' %}">Все виды</a>
+        {% for pet in all_pets %}
+        <a class="dropdown-item" href="?filter={{ pet.specie }}">{{ pet.specie }}</a>
+        {% endfor %}
+    </div>
+</div>
+
 <div class="d-flex justify-content-start flex-wrap mt-3 pet-list">
     {% for pet in object_list %}
         <div class="pet mx-3 my-3">

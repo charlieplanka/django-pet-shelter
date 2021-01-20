@@ -20,10 +20,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <span class="navbar-brand" style="margin-left: 170px">&#128036; &#128007; &#128024;</span>
             <div class="navbar-nav mx-5">
-                {% block nav %}
-                    {% block nav-pets %}<a class="nav-item nav-link active" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
-                    {% block nav-contacts %}<a class="nav-item nav-link" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
-                {% endblock %}
+                {% block nav-pets %}<a class="nav-item nav-link" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
+                {% block nav-contacts %}<a class="nav-item nav-link" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
             </div>
         </nav>
         

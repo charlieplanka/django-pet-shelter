@@ -87,8 +87,38 @@ pip install -r requirements.txt
 ```
 echo 'SECRET_KEY=0#*rrb+!hpo_e=bt(5w=e3(r=yige=)z$-7eccj*3z$0#4zoec' > shelter/.env
 ```
-5. Миграции, база, фикстуры.
-6. Запустите сервер (по умолчанию поднимется на 8000 порту):
+5. Зайдите в консоль **postgreSQL** :
+```
+psql -U postgres
+```
+(`postgres` — имя пользователя-администратора по умолчанию)
+
+6. Cоздайте юзера `shelter` с паролём `shelter`:
+```
+CREATE USER shelter WITH PASSWORD 'shelter';
+```
+
+7. Cоздайте базу `shelter` и назначьте юзера владельцем:
+```
+CREATE DATABASE shelter OWNER shelter;
+```
+
+8. Выйдите из консоли postgreSQL:
+```
+\q
+```
+
+9. Запустите миграции:
+```
+python manage.py migrate
+```
+
+10. Загрузите фикстуры:
+```
+python manage.py loaddata shelter_data.json
+```
+
+11. Запустите сервер (по умолчанию поднимется на 8000 порту):
 ```
 python manage.py runserver
 ```

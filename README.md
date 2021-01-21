@@ -82,8 +82,8 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-3. Сгенерируйте секретный ключ на [Djecrety](https://djecrety.ir/).
-4. Создайте файл `.env` в каталоге `/shelter` и запишите в него значение **сгенерированного** ключа:
+3. (необязательно) Сгенерируйте секретный ключ на [Djecrety](https://djecrety.ir/).
+4. (необязательно) Создайте файл `.env` в каталоге `/shelter` и запишите в него значение **сгенерированного** ключа:
 ```
 echo 'SECRET_KEY=0#*rrb+!hpo_e=bt(5w=e3(r=yige=)z$-7eccj*3z$0#4zoec' > shelter/.env
 ```

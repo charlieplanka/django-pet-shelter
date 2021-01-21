@@ -21,35 +21,51 @@ git clone https://github.com/charlieplanka/django-pet-shelter.git
 cd django-pet-shelter
 virtualenv venv
 ```
+
 2. Активируйте окружение и установите зависимости:
 ```
 .\venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
 3. (необязательно) Сгенерируйте секретный ключ на [Djecrety](https://djecrety.ir/).
 4. (необязательно) Создайте файл `.env` в каталоге `\shelter` и запишите в него значение ключа:
 ```
 Echo 'SECRET_KEY=0#*rrb+!hpo_e=bt(5w=e3(r=yige=)z$-7eccj*3z$0#4zoec' > ".\shelter\.env"
 ```
-5. Зайдите в консоль **postgreSQL** и создайте юзера `shelter` с паролём `shelter`, а затем создайте базу `shelter` и назначьте юзера владельцем:
 
+5. Зайдите в консоль **postgreSQL** :
 ```
 psql -U postgres
-CREATE USER shelter WITH PASSWORD shelter;
+```
+(`postgres` — имя пользователя-администратора по умолчанию)
+
+6. Cоздайте юзера `shelter` с паролём `shelter`:
+```
+CREATE USER shelter WITH PASSWORD 'shelter';
+```
+
+7. Cоздайте базу `shelter` и назначьте юзера владельцем:
+```
 CREATE DATABASE shelter OWNER shelter;
 ```
 
-6. Вернитесь в проект и запустите миграции:
+8. Выйдите из консоли postgreSQL:
+```
+\q
+```
+
+9. Запустите миграции:
 ```
 python manage.py migrate
 ```
 
-7. Загрузите фикстуры:
+10. Загрузите фикстуры:
 ```
 python manage.py loaddata shelter_data.json
 ```
 
-8. Запустите сервер (по умолчанию поднимется на 8000 порту):
+11. Запустите сервер (по умолчанию поднимется на 8000 порту):
 ```
 python manage.py runserver
 ```

@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'shelter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'petshelter',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shelter',
+        'USER': 'shelter',
+        'PASSWORD': 'shelter',
         'HOST': 'localhost',
         'PORT': '',
     }

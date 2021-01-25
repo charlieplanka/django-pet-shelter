@@ -1,5 +1,7 @@
-from pet_shelter.models import Pet
 from django.views.generic import DetailView, TemplateView, ListView
+from django.shortcuts import render, redirect
+from .models import Pet, Specie
+from .forms import PetForm
 
 
 class PetDetailView(DetailView):
@@ -24,5 +26,18 @@ class PetsListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['all_pets'] = Pet.objects.all()
+        context['species'] = Specie.objects.all()
         return context
+
+
+def add_pet(request):
+    if request.method == "POST":
+        form = PetForm(request.POST, request.FILES)
+        if form.is_valid():
+            pet = form.save(commit=False)
+            pet.photo = request.FILES['photo']
+            pet.save()
+        return redirect('/')
+    else:
+        form = PetForm()
+        return render(request, 'add_pet.html', {'form': form})

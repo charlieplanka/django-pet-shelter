@@ -8,7 +8,7 @@ class PetAdmin(admin.ModelAdmin):
     def pet(self):
         return self
 
-    list_display = ('pet', 'gender', 'age')
+    list_display = ('pet', 'gender', 'age', 'breed', 'arrival_date')
 
 
 @admin.register(Specie)

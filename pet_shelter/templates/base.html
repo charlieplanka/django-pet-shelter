@@ -22,6 +22,7 @@
             <div class="navbar-nav mx-5">
                 {% block nav-pets %}<a class="nav-item nav-link" href="{% url 'shelter:pets' %}">Питомцы</a>{% endblock %}
                 {% block nav-contacts %}<a class="nav-item nav-link" href="{% url 'shelter:contacts' %}">Контакты</a>{% endblock %}
+                {% block nav-add-pet %}<a class="nav-item nav-link" href="{% url 'shelter:add_pet' %}">Добавить питомца</a>{% endblock %}
             </div>
         </nav>
         

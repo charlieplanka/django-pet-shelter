@@ -25,8 +25,8 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="{% url 'shelter:pets' %}">Все виды</a>
-        {% for pet in all_pets %}
-        <a class="dropdown-item" href="?filter={{ pet.specie }}">{{ pet.specie }}</a>
+        {% for specie in species %}
+        <a class="dropdown-item" href="?filter={{ specie }}">{{ specie }}</a>
         {% endfor %}
     </div>
 </div>

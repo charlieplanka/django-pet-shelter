@@ -31,7 +31,10 @@ class PetsListView(ListView):
 
 
 def add_pet(request):
-    if request.method == "POST":
+    data = {}
+    if request.user.is_authenticated:
+        data['username'] = request.user.username
+    if request.method == 'POST':
         form = PetForm(request.POST, request.FILES)
         if form.is_valid():
             pet = form.save(commit=False)
@@ -39,5 +42,5 @@ def add_pet(request):
             pet.save()
         return redirect('/')
     else:
-        form = PetForm()
-        return render(request, 'add_pet.html', {'form': form})
+        data['form'] = PetForm()
+        return render(request, 'add_pet.html', data)

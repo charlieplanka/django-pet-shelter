@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
+{% block head_title %}Добавить объявление{% endblock %}
+
 {% block nav-add-pet %}<a class="nav-item nav-link active" href="{% url 'shelter:add_pet' %}">Добавить объявление</a>{% endblock %}
 
 {% block content %}
@@ -11,17 +13,8 @@
         <p>Чтобы добавить новое объявление о питомце, необходимо войти на сайт.</p>
         <a href="{% url 'shelter:login' %}" class="btn btn-outline-primary">Войти или зарегистрироваться</a>
     {% else %}
-        <!-- {% if not github_url %}
-            <p class="text-right greeting">
-                Привет, <strong>{{ username }}</strong>!
-            </p>
-        {% else %}
-            <p class="text-right greeting">
-                Привет, <a href="{{ github_url }}" target="_blank"><strong>{{ username }}</strong></a>!
-            </p>
-        {% endif %}
-        <a href="{% url 'shelter:logout' %}" class="align-self-end">Выйти</a> -->
-        <form method="POST" class="pet-form mt-3" enctype="multipart/form-data" style="max-width: 300px">{% csrf_token %}
+        <a href="{% url 'shelter:logout' %}" class="btn btn-outline-primary align-self-start">Выйти из аккаунта</a>
+        <form method="POST" class="pet-form my-3" enctype="multipart/form-data" style="max-width: 300px">{% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="save btn btn-default">Добавить</button>
         </form>

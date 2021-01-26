@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
     'crispy_forms',
 
     'pet_shelter',
@@ -55,6 +54,8 @@ INSTALLED_APPS = [
 
 LOGIN_REDIRECT_URL = reverse_lazy('shelter:add_pet')
 LOGOUT_REDIRECT_URL = reverse_lazy('shelter:add_pet')
+
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

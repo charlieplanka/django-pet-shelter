@@ -9,15 +9,6 @@
 
 <h3 class="mb-3">Войти на сайт</h3>
 
-<p>Пожалуйста, авторизуйтесь через внешний аккаунт:</p>
-
-<ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-</ul>
-
-<p>Либо <a href="{{ signup_url }}">зарегистрируйтесь</a>
-и авторизуйтесь ниже:</p>
-
 {% include "socialaccount/snippets/login_extra.html" %}
 
 <form class="login mb-3" method="POST" action="{% url 'account_login' %}" style="max-width: 300px;">
@@ -28,5 +19,7 @@
     {% endif %}
     <button class="primaryAction btn" type="submit">Войти</button>    
 </form>
+
+<p>Если у вас ещё нет аккаунта, <a href="{{ signup_url }}">зарегистрируйтесь</a></p>
 
 {% endblock %}

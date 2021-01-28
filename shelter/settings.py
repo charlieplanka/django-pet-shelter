@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import environ
 from django.urls import reverse_lazy
+import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()
@@ -157,3 +158,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
